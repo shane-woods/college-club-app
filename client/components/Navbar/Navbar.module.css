@@ -1,0 +1,28 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin: 20px;
+}
+
+.navbar > img {
+  margin-right: 15px;
+}
+
+.navitem {
+  margin:10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: larger;
+  font-weight:bold;
+}
+
+.navitem > a {
+  margin:5px;
+  padding: 5px;
+  color: black;
+  text-decoration: none;
+}
+
+.navitem > a:hover {
+  border-bottom: solid 2px black;
+}
