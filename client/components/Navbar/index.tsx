@@ -12,9 +12,20 @@ interface NavProp {
 const Navbar = () => {
   return (
     <div className={styles.navbar}>
-      <Image alt="Company logo" src={logo} width={100} height={50}/>
-      <Navitem path="sign-up" name="Sign Up"/>
-      <Navitem path="pricing" name="Pricing"/>
+      <div className={styles.logo}>
+        <Image alt="Company logo" src={logo} width={100} height={50}/>
+      </div>
+      <nav className={styles.navigation}>
+        <Navitem path="about" name="About"/>
+        <Navitem path="pricing" name="Pricing"/>
+        <Navitem path="features" name="Features"/>
+      </nav>
+      <div className={styles.account}>
+        <Navitem path="sign-in" name="Login"/>
+        <div className={styles.signup}>
+          <Navitem path="sign-up" name="Get Started"/>
+        </div>
+      </div>
     </div>
   )
 }
