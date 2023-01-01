@@ -13,9 +13,8 @@ const Navbar = () => {
   return (
     <div className={styles.navbar}>
       <Image alt="Company logo" src={logo} width={100} height={50}/>
-      <Navitem path="login" name="Login"/>
-      <Navitem path="about" name="About"/>
-      <Navitem path="finances" name="Finances"/>
+      <Navitem path="sign-up" name="Sign Up"/>
+      <Navitem path="pricing" name="Pricing"/>
     </div>
   )
 }
