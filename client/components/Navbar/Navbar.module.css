@@ -40,11 +40,15 @@
   align-items: center;
 }
 
-.signup > .navitem {
-  background-color: lavender;
+.signup > .navitem > a {
+  background-color: rgb(192, 123, 241);
   border-radius: 5px;
   border:solid 1px black;
-  padding:5px;
+  padding:7.5px;
+}
+
+.signup > .navitem > a:hover {
+  background-color: rgb(201, 150, 238);
 }
 
 .logo {
