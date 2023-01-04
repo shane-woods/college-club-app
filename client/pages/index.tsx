@@ -1,14 +1,15 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
 import Navbar from '../components/Navbar'
+import {
+  SignedIn,
+  SignedOut,
+  UserButton,
+  UserProfile
+} from '@clerk/nextjs'
 import { useState } from 'react'
 
-const inter = Inter({ subsets: ['latin'] })
-
 export default function Home() {
-  const [loggedIn, setLoggedIn] = useState(false);
   return (
     <>
       <Head>
@@ -17,15 +18,19 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navbar/>
-      {loggedIn ? (
-        <main className={styles.loggedView}>
-
+      <SignedIn>
+        <main className={styles.user}>
+          <Navbar/>
+          <UserButton afterSignOutUrl='/'/>
         </main>
-      ) : (
-        <main className={styles.main}>
+      </SignedIn>
+      <SignedOut>
+        <main className={styles.guest}>
+          <Navbar/>
+          <h1>Welcome guest!</h1>
         </main>
-      )}
+      </SignedOut>
+     
     </>
   )
 }

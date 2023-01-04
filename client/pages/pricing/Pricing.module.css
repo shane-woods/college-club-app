@@ -1,0 +1,27 @@
+.plans {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10% 0 0 0;
+}
+
+.tier {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border: solid 1px;
+  border-radius: 5px;
+  max-width: 95%;
+}
+
+.monthly {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.feature {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
