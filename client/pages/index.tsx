@@ -1,13 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import Navbar from '../components/Navbar'
-import {
-  SignedIn,
-  SignedOut,
-  UserButton,
-  UserProfile
-} from '@clerk/nextjs'
-import { useState } from 'react'
 
 export default function Home() {
   return (
@@ -18,19 +11,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <SignedIn>
-        <main className={styles.user}>
-          <Navbar/>
-          <UserButton afterSignOutUrl='/'/>
-        </main>
-      </SignedIn>
-      <SignedOut>
-        <main className={styles.guest}>
-          <Navbar/>
-          <h1>Welcome guest!</h1>
-        </main>
-      </SignedOut>
-     
+      <main className={styles.guest}>
+        <Navbar/>
+        <h1>Welcome guest!</h1>
+      </main>
     </>
   )
 }

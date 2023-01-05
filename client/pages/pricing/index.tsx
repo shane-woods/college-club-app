@@ -35,6 +35,7 @@ const FreeTier = () => {
       <Feature/>
       <Feature/>
       <Feature/>
+      <Subscribe/>
     </div>
   )
 }
@@ -51,6 +52,7 @@ const MiddleTier = () => {
       <Feature/>
       <Feature/>
       <Feature/>
+      <Subscribe/>
     </div>
   )
 }
@@ -67,6 +69,7 @@ const TopTier = () => {
       <Feature/>
       <Feature/>
       <Feature/>
+      <Subscribe/>
     </div>
   )
 }
@@ -77,6 +80,15 @@ const Feature = () => {
       <Image src={check} alt="checkmark" width={20} height={20}/>
       <p>Feature</p>
     </div>
+  )
+}
+
+const Subscribe = () => {
+
+  return (
+    <button className={styles.subscribe}>
+      Subscribe
+    </button>
   )
 }
 

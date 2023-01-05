@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from './DashNavBar.module.css'
 import finance from '../../public/dash-icons/dollar-sign.svg'
 import chat from '../../public/dash-icons/message-square.svg'
@@ -20,8 +20,19 @@ type NavItemProp = {
 
 const DashNavBar = () => {
   const {theme, setTheme} = useTheme();
+  const [mounted, setMounted] = useState<boolean>(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, [])
+
+  if (!mounted) {
+    return null;
+  }
+
   const iconSize : number = 25;
   console.log(theme);
+  
   return (
     <div className={styles.dashNav}>
       <div className={styles.logo}>

@@ -3,3 +3,9 @@
   border:transparent;
   cursor: pointer;
 }
+
+.dashNav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
