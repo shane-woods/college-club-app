@@ -1,12 +1,14 @@
 :root {
   /* Your default theme */
-  --background: rgb(251, 251, 251);
+  --background: rgb(243, 243, 243);
   --foreground: rgb(30, 35, 40);
+  --compliment: rgb(255, 255, 255);
 }
 
 [data-theme='dark'] {
   --background: rgb(30, 35, 40);
-  --foreground: rgb(251, 251, 251);
+  --foreground: rgb(243, 243, 243);
+  --compliment: rgb(21, 26, 31);
 }
 
 html,

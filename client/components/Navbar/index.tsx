@@ -1,11 +1,10 @@
 import styles from './Navbar.module.css'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link';
 import logo from '../../public/theme/logo.png'
 import moon from '../../public/theme/moon.svg'
 import sun from '../../public/theme/sun.svg'
 import Image from 'next/image';
-import { UserButton } from '@clerk/nextjs';
 import { useTheme } from 'next-themes';
 import { useRouter } from 'next/router';
 
@@ -17,19 +16,29 @@ type NavItemProp = {
 
 const Navbar = () => {
   const {theme, setTheme} = useTheme();
+  const [mounted, setMounted] = useState<boolean>(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, [])
+
+  if (!mounted) {
+    return null;
+  }
+
   return (
     <>
       <div className={styles.navbar}>
-        <div className={styles.logo}>
+        <nav className={styles.navSection}>
           <Navitem showSelected={false} path="" name="Logo Will Go Here"/>
-        </div>
-        <nav className={styles.navigation}>
+        </nav>
+        <nav className={styles.navSection}>
           <Navitem showSelected={true} path="about" name="About"/>
           <Navitem showSelected={true} path="pricing" name="Pricing"/>
           <Navitem showSelected={true} path="features" name="Features"/>
         </nav>
-        <div className={styles.account}>
-          <Navitem showSelected={false} path="sign-in" name="Login"/>
+        <nav className={styles.navSection}>
+          <Navitem showSelected={false} path="login" name="Login"/>
           <div className={styles.signup}>
             <Navitem showSelected={false} path="sign-up" name="Get Started"/>
           </div>      
@@ -46,7 +55,7 @@ const Navbar = () => {
               )
             }    
           </div>
-        </div>
+        </nav>
       </div>
     </>
   )

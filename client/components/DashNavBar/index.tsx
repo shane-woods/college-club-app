@@ -8,7 +8,6 @@ import sun from '../../public/theme/sun.svg'
 import moon from '../../public/theme/moon.svg'
 import Image from "next/image";
 import { useTheme } from "next-themes";
-import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 
 type NavItemProp = {
@@ -31,7 +30,6 @@ const DashNavBar = () => {
   }
 
   const iconSize : number = 25;
-  console.log(theme);
   
   return (
     <div className={styles.dashNav}>
@@ -44,7 +42,6 @@ const DashNavBar = () => {
         <Navitem src={roster} alt='roster icon' width={iconSize} height={iconSize}/>
       </div>
       <div className={styles.user}>
-      <UserButton afterSignOutUrl="http://localhost:3000/"/>
       <Navitem src={settings} alt='settings icon' width={iconSize} height={iconSize}/>
         <div className={styles.themeSwitch}>
           {

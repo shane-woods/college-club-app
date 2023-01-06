@@ -1,0 +1,11 @@
+.authLight {
+  margin: 5rem 25rem;
+  padding: 20px;
+  background-color: rgb(255, 255, 255);
+}
+
+.authDark {
+  margin: 5rem 25rem;
+  padding: 20px;
+  background-color: rgb(18, 22, 28);
+}
