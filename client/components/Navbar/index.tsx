@@ -2,8 +2,8 @@ import styles from './Navbar.module.css'
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link';
 import logo from '../../public/theme/logo.png'
-import moon from '../../public/theme/moon.svg'
-import sun from '../../public/theme/sun.svg'
+import Moon from '../../public/theme/moon.svg'
+import Sun from '../../public/theme/sun.svg'
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { useRouter } from 'next/router';
@@ -46,11 +46,11 @@ const Navbar = () => {
             {
               theme === 'light' ? (
                 <button onClick={() => setTheme('dark')}>
-                  <Image alt="image of moon" src={moon} width={25} height={25}/>
+                  <Moon />
                 </button>
               ) : (
                 <button onClick={() => setTheme('light')}>
-                  <Image alt="image of sun" src={sun} width={25} height={25}/>
+                  <Sun />
                 </button>
               )
             }    

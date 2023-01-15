@@ -2,7 +2,7 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react"
 import Navbar from "../../components/Navbar";
 import styles from './Pricing.module.css'
-import check from '../../public/pricing/check-circle.svg'
+import Check from '../../public/pricing/check-circle.svg'
 import { useTheme } from "next-themes";
 
 type TierProps = {
@@ -102,7 +102,7 @@ const TopTier = (tierProps : TierProps) => {
 const Feature = () => {
   return (
     <div className={styles.feature}>
-      <Image src={check} alt="checkmark" width={20} height={20}/>
+      <Check />
       <p>Feature</p>
     </div>
   )

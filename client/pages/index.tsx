@@ -13,8 +13,17 @@ export default function Home() {
       </Head>
       <main className={styles.guest}>
         <Navbar/>
-        <h1>Welcome guest!</h1>
+        <HomeHeader/>
       </main>
     </>
+  )
+}
+
+const HomeHeader = () => {
+  return (
+    <div className={styles.header}>
+      <h1>Company Name Here</h1>
+      <p>Everything you need to run your college organization</p>
+    </div>
   )
 }
