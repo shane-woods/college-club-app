@@ -2,27 +2,64 @@
   display: flex;
   align-items: center;
   flex-direction: row;
+  justify-content: space-around;
   margin: 20px;
-}
-
-.navbar > img {
-  margin-right: 15px;
 }
 
 .navitem {
   margin:10px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: larger;
-  font-weight:bold;
 }
 
 .navitem > a {
-  margin:5px;
   padding: 5px;
-  color: black;
   text-decoration: none;
 }
 
 .navitem > a:hover {
-  border-bottom: solid 2px black;
+  border-bottom: solid 2px;
+}
+
+.navSection {
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  min-width: 300px;
+  justify-content: center;
+}
+
+.signup {
+  display: flex;
+  align-items: center;
+}
+
+.signup > .navitem > a {
+  background-color: rgb(49, 175, 238);
+  border-radius: 10px;
+  border:solid 1px;
+  padding:7.5px;
+}
+
+.signup > .navitem > a:hover {
+  background-color:rgb(68, 189, 249);
+}
+
+.themeSwitch > button {
+  background-color: transparent;
+  border:transparent;
+  cursor: pointer;
+}
+
+.selected {
+  margin:10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: larger;
+}
+
+.selected > a {
+  padding:5px;
+  border-bottom:solid 2px;
+  border-color: rgb(49, 175, 238);
+  color: rgb(49, 175, 238);
 }

@@ -1,0 +1,66 @@
+.plansContainer {
+  display: flex;
+  max-width: 100rem;
+  justify-content: center;
+  margin-top:3rem;
+}
+
+.plans {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.tierLight {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+}
+
+.tierDark {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgb(18, 22, 28);
+}
+
+.tier > p {
+  display: flex;
+  margin-block: 0;
+  margin-inline: 0;
+  margin: 25px 0;
+}
+
+.monthly {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+
+.feature {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top:2rem;
+}
+
+.header > h1 {
+  font-size: 5rem;
+  margin:1rem;
+}
+
+.header > p {
+  margin: 1rem;
+  font-size: 1.5rem;
+}

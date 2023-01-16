@@ -1,0 +1,38 @@
+.dashButton > button {
+  background-color: transparent;
+  border:transparent;
+  cursor: pointer;
+  padding:0;
+}
+
+.dashNav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.tools {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.user > svg {
+  padding: 1rem;
+}
+
+.logo {
+  display: flex;
+  padding: 1rem;
+}
+
+.dashButton {
+  padding: 1rem;
+  margin:.5rem;
+}

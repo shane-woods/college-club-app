@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { Auth, ThemeSupa } from '@supabase/auth-ui-react'
-import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react'
-import styles from './Login.module.css'
+import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
+import { Auth, ThemeSupa } from "@supabase/auth-ui-react";
 import { useTheme } from "next-themes";
+import React, { useEffect, useState } from "react";
 import Account from "../../components/Account";
+import styles from './SignUp.module.css'
 
-const Login = () => {
+const SignUp = () => {
   const session = useSession();
   const supabase = useSupabaseClient();
-  const {theme, setTheme} = useTheme();
+  const {theme} = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -22,10 +22,10 @@ const Login = () => {
   const authClass = theme === 'light' ? styles.authLight : styles.authDark;
 
   return (
-    <div className={styles.login}>
+    <div className={styles.signup}>
       {!session ? ( 
         <div className={authClass}>
-          <LoginHeader/>
+          <SignUpHeader/>
           <Auth 
             supabaseClient={supabase} 
             appearance={{ 
@@ -41,7 +41,7 @@ const Login = () => {
             theme={theme}
             providers = {['google']}
             redirectTo="http://localhost:3000/dashboard"
-            view="sign_in"
+            view="sign_up"
             />
         </div>
       ) : (
@@ -51,12 +51,12 @@ const Login = () => {
   )
 }
 
-const LoginHeader = () => {
+const SignUpHeader = () => {
   return (
     <div className={styles.header}>
-      <h1>Login</h1>
+      <h1>Sign Up</h1>
     </div>
   )
 }
 
-export default Login;
+export default SignUp;

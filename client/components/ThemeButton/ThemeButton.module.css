@@ -1,0 +1,11 @@
+.dashButton {
+  padding: 1rem;
+  margin:.5rem;
+}
+
+.dashButton > button {
+  background-color: transparent;
+  border:transparent;
+  cursor: pointer;
+  padding:0;
+}
