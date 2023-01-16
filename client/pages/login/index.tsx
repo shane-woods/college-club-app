@@ -3,6 +3,7 @@ import { Auth, ThemeSupa } from '@supabase/auth-ui-react'
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react'
 import styles from './Login.module.css'
 import { useTheme } from "next-themes";
+import Account from "../../components/Account";
 
 const Login = () => {
   const session = useSession();
@@ -44,7 +45,7 @@ const Login = () => {
             />
         </div>
       ) : (
-        <p>Account page will go here.</p>
+        <Account session={session}/>
       )}
     </div>
   )

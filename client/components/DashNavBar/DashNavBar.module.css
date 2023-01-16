@@ -1,8 +1,8 @@
-.themeSwitch > button {
+.dashButton > button {
   background-color: transparent;
   border:transparent;
   cursor: pointer;
-  padding: 1rem;
+  padding:0;
 }
 
 .dashNav {
@@ -14,11 +14,13 @@
 .tools {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
 }
 
 .user {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
 }
 
 .user > svg {
@@ -32,4 +34,5 @@
 
 .dashButton {
   padding: 1rem;
+  margin:.5rem;
 }

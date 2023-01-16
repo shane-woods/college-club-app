@@ -1,13 +1,13 @@
 import React from "react";
 import DashNavBar from "../../components/DashNavBar";
-import styles from './Roster.module.css'
+import styles from './Settings.module.css'
 
-const Roster = () => {
+const Settings = () => {
   return (
-    <div>
+    <div className={styles.settings}>
       <DashNavBar/>
     </div>
   )
 }
 
-export default Roster;
+export default Settings;
