@@ -1,11 +1,14 @@
 import React from "react";
+import ChatView from "../../components/ChatView";
 import DashNavBar from "../../components/DashNavBar";
 import styles from './Chat.module.css'
 
 const Chat = () => {
+
   return (
-    <div>
+    <div className={styles.chat}>
       <DashNavBar/>
+      <ChatView/>
     </div>
   )
 }

@@ -1,0 +1,50 @@
+.accountContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.account {
+  display: flex;
+  flex-direction: column;
+  width: 50rem;
+  margin-top: 5rem;
+}
+
+.userWelcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userWelcome > h1 {
+  font-size: 4rem;
+}
+
+.userAvatar {
+  border-radius: 50%;
+  width: 75px;
+  height:75px;
+  margin: 0;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.usernameField {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: center;
+}
+
+.emailField {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: center;
+}

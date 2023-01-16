@@ -15,7 +15,7 @@ export interface Database {
           updated_at: string | null
           username: string | null
           full_name: string | null
-          avatar_url: string | null
+          avatar_url: string
           website: string | null
         }
         Insert: {

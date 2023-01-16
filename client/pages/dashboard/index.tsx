@@ -1,11 +1,8 @@
-import { useTheme } from "next-themes";
 import React from "react";
 import DashNavBar from "../../components/DashNavBar";
 
 
 const Dashboard = () => {
-  const {theme, setTheme} = useTheme();
-  console.log(theme);
   return (
     <>
       <DashNavBar/>

@@ -1,7 +1,7 @@
 :root {
   /* Your default theme */
-  --background: rgb(243, 243, 243);
-  --foreground: rgb(30, 35, 40);
+  --background: #f3f3f3;
+  --foreground: #1e2328;
   --compliment: rgb(255, 255, 255);
 }
 
@@ -28,4 +28,10 @@ a {
 
 img {
   color:var(--foreground);
+}
+
+#__next {
+	display:flex;
+  flex-direction:column;
+  height: 100%;
 }

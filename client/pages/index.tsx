@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar'
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import Footer from '../components/Footer';
 
 export default function Home() {
   const session = useSession();
@@ -34,6 +35,7 @@ export default function Home() {
         <main className={styles.guest}>
           <Navbar/>
           <HomeHeader/>
+          <Footer/>
         </main>
       )}
     </div>
