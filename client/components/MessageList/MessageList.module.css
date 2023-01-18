@@ -1,0 +1,31 @@
+.message {
+  margin: 1rem 15rem 1rem 1rem;
+  padding: 1rem;
+  color: black;
+  background-color: aliceblue;
+}
+
+.messageList {
+  display: flex;
+  flex-flow: column;
+  overflow-y: scroll;
+  height: calc(100vh - 10rem);
+  margin: 1rem;
+  padding: 1rem;
+  width: 90%;
+  border: lightblue 0.5px solid;
+}
+
+.messageList > :first-child {
+  margin-top: auto;
+}
+
+.userMessage {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 1rem 1rem 15rem;
+  padding: 1rem;
+  background-color: #31afee;
+}

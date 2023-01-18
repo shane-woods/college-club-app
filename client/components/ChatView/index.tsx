@@ -1,62 +1,40 @@
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import React, { useState } from "react";
-import styles from './ChatView.module.css'
+import MessageList from "../MessageList";
+import styles from "./ChatView.module.css";
 
 const ChatView = () => {
+  const [message, setMessage] = useState<string>("");
+  const supabase = useSupabaseClient();
 
-  const [message, setMessage] = useState<string>('');
-  const [messageList, setMessageList] = useState<string[]>([]);
-
-  function handleEnter(event : any) {
+  async function handleEnter(event: any) {
     if (event.keyCode === 13) {
-      setMessage('');
-      setMessageList([...messageList, message])
+      if (typeof message === "string" && message.length !== 0) {
+        setMessage("");
+        const { error, data } = await supabase
+          .from("messages")
+          .insert({ content: message });
+        console.log({ error, data });
+      }
     }
   }
 
-  console.log(messageList);
-
   return (
     <div className={styles.chat}>
-      <MessageList messageArg={messageList}/>
+      <MessageList />
       <div className={styles.messageInput}>
-        <input 
-          type="text" 
+        <input
+          type="text"
           name="message"
+          autoComplete="off"
           placeholder="Send a message"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          onKeyDown={(e) => handleEnter(e)}/>
+          onKeyDown={(e) => handleEnter(e)}
+        />
       </div>
     </div>
-  )
-}
-
-type messageListProps = {
-  messageArg : string[];
-}
-
-const MessageList = (props : messageListProps) => {
-  return ( 
-    <div className={styles.messageList}>
-      {props.messageArg.map((message) => {
-        return (
-          <Message text={message}/>
-        )
-      })}
-    </div>
-  )
-}
-
-type messageProps = {
-  text: string | null;
-}
-
-const Message = (props : messageProps) => {
-  return (
-    <div className={styles.message}>
-      {props.text}
-    </div>
-  )
-}
+  );
+};
 
 export default ChatView;
