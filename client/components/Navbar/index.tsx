@@ -40,7 +40,7 @@ const Navbar = () => {
         <nav className={styles.navSection}>
           <Navitem showSelected={false} path="login" name="Login"/>
           <div className={styles.signup}>
-            <Navitem showSelected={false} path="sign-up" name="Get Started"/>
+            <Navitem showSelected={false} path="signup" name="Get Started"/>
           </div>      
           <div className={styles.themeSwitch}>
             {

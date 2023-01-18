@@ -8,7 +8,7 @@ import Image from "next/image";
 
 const Account = ({session} : {session : Session}) => {
   const supabase = useSupabaseClient<Database>()
-  const user = useUser()
+  const user = useUser();
   const [loading, setLoading] = useState(true)
   const [username, setUsername] = useState<Profiles['username']>(null);
   const [firstName, setFirstName] = useState<Profiles['full_name']>(null);
@@ -80,6 +80,10 @@ const Account = ({session} : {session : Session}) => {
     }
   }
 
+  async function signout() {
+    const { error } = await supabase.auth.signOut()
+  }
+
   return (
     <div className={styles.accountContainer}>
       <div className={styles.account}>
@@ -117,7 +121,7 @@ const Account = ({session} : {session : Session}) => {
           </button>
         </div>
         <div>
-          <button className="button block" onClick={() => supabase.auth.signOut()}>
+          <button className="button block" onClick={signout}>
             Sign Out
           </button>
         </div>

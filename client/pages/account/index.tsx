@@ -6,27 +6,20 @@ import DashNavBar from "../../components/DashNavBar";
 import styles from './AccountPage.module.css'
 
 const AccountPage = () => {
-  const session = useSession();
   const router = useRouter();
+  const session = useSession();
 
-  useEffect(() => {
-    // if (!session) {
-    //   router.push('http://localhost:3000/');
-    // }
-  }, [session])
-
-  return (
-    <div className={styles.accountPage}>
-      <DashNavBar/>
-      {!session ? (
-        <div>
-
-        </div>
-      ) : (
+  if (!session) {
+    router.push('/login');
+  } else {
+    return (
+      <div className={styles.accountPage}>
+        <DashNavBar/>
         <Account session={session}/>
-      )}
-    </div>
-  )
+      </div>
+    )
+  }
+
 }
 
 export default AccountPage;

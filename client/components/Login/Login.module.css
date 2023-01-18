@@ -1,0 +1,100 @@
+.loginLight {
+  display: flex;
+  flex-direction: column;
+  width: 30rem;
+  gap: 2rem;
+  border: solid 1px transparent;
+  padding:1rem;
+  border-radius: .5rem;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+}
+
+.loginDark {
+  display: flex;
+  flex-direction: column;
+  width: 30rem;
+  gap: 2rem;
+  border: solid 1px transparent;
+  padding:1rem;
+  border-radius: .5rem;
+  align-items: center;
+  background-color: rgb(18, 22, 28);
+}
+
+.title {
+  margin: 1rem .5rem;
+}
+
+
+.email {
+  display: flex;
+  flex-direction: column;
+}
+
+.email > label {
+  padding: 1rem 0;
+}
+
+.email > input {
+  height:1rem;
+  padding:1rem;
+  border-radius: 5px;
+  border: 1px solid;
+}
+
+.email > input:focus {
+  outline: none;
+}
+
+.password {
+  display: flex;
+  flex-direction: column;
+}
+
+.password > label {
+  padding: 1rem 0;
+}
+
+.password > input {
+  height: 1rem;
+  padding:1rem;
+  border-radius: 5px;
+  border: 1px solid;
+}
+
+.password > input:focus {
+  outline:none;
+}
+
+.google {
+  cursor: pointer;
+  width: fit-content;
+  height: fit-content;
+}
+
+.signin {
+  width: 30.5rem;
+  padding: .5rem;
+  margin: 1rem 0;
+  font-size: 1rem;
+  background-color: rgb(49, 175, 238);
+  border: 1px solid;
+  border-radius:1rem;
+  cursor: pointer;
+}
+
+.signin:hover {
+  background-color:rgb(68, 189, 249);
+}
+
+.signupLink {
+  display: flex;
+  flex-direction: row;
+  gap: .5rem;
+}
+
+.signupLink > a {
+  text-decoration: underline;
+  margin: 16px 0;
+}

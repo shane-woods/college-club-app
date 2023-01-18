@@ -1,0 +1,4 @@
+.finances {
+  display: flex;
+  flex-direction: row;
+}
