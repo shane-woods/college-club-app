@@ -5,6 +5,13 @@
   padding:0;
 }
 
+.dashSelected > button {
+  background-color: transparent;
+  border:transparent;
+  cursor: pointer;
+  padding:0;
+}
+
 .dashNav {
   display: flex;
   flex-direction: column;
@@ -35,7 +42,16 @@
 }
 
 .dashButton {
-  padding: 1rem;
-  margin:.5rem;
-  
+  display: flex;
+  padding: .5rem;
+  margin:1rem;
+  border: solid 2px transparent;
 }
+
+.dashSelected {
+  display: flex;
+  padding: .5rem;
+  margin: 1rem;
+  border: solid 2px transparent;
+  border-bottom: solid 2px #31afee;
+} 

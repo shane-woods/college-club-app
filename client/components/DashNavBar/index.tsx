@@ -8,6 +8,7 @@ import User from '../../public/dash-icons/user.svg'
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import ThemeButton from "../ThemeButton";
+import { useRouter } from "next/router";
 
 const DashNavBar = () => {
   const {theme, setTheme} = useTheme();
@@ -51,6 +52,19 @@ type dashProps = {
 }
 
 const DashButton = (button : dashProps) => {
+  const router = useRouter();
+  const buttonSelected : Boolean = router.pathname === '/' + button.path;
+  
+  if (buttonSelected) {
+    return (
+      <div className={styles.dashSelected}>
+        <Link href={'/' + button.path}>
+          <button.Icon stroke="#31afee"/>
+        </Link>
+      </div>
+    )
+  }
+
   return (
     <div className={styles.dashButton}>
       <Link href={'/' + button.path}>
