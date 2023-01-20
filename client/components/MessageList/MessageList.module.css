@@ -1,11 +1,13 @@
 .message {
-  margin: 1rem 15rem 1rem 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 1rem;
   padding: 1rem;
   color: black;
   background-color: aliceblue;
 }
 
-.messageList {
+.messageListLight {
   display: flex;
   flex-flow: column;
   overflow-y: scroll;
@@ -13,19 +15,31 @@
   margin: 1rem;
   padding: 1rem;
   width: 90%;
-  border: lightblue 0.5px solid;
+  background-color: #ffffff;
 }
 
-.messageList > :first-child {
+.messageListDark {
+  display: flex;
+  flex-flow: column;
+  overflow-y: scroll;
+  height: calc(100vh - 10rem);
+  margin: 1rem;
+  padding: 1rem;
+  width: 90%;
+  background-color: #151a1f;
+}
+
+.messageListLight > :first-child {
+  margin-top: auto;
+}
+
+.messageListDark > :first-child {
   margin-top: auto;
 }
 
 .userMessage {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  display: grid;
   gap: 1rem;
-  margin: 1rem 1rem 1rem 15rem;
+  margin: 1rem;
   padding: 1rem;
-  background-color: #31afee;
 }

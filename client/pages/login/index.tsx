@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Auth, ThemeSupa } from '@supabase/auth-ui-react'
-import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react'
-import styles from './LoginPage.module.css'
+import { Auth, ThemeSupa } from "@supabase/auth-ui-react";
+import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
+import styles from "./LoginPage.module.css";
 import { useTheme } from "next-themes";
 import Account from "../../components/Account";
 import Login from "../../components/Login";
@@ -15,21 +15,21 @@ const LoginPage = () => {
 
   useEffect(() => {
     setMounted(true);
-  }, [])
+  }, []);
 
   if (!mounted) {
     return null;
   }
-  
+
   if (!session) {
     return (
       <div className={styles.login}>
-        <Login/>
+        <Login />
       </div>
-    )
+    );
   } else {
-    router.push('/dashboard');
+    router.push("/club/dashboard");
   }
-}
+};
 
 export default LoginPage;

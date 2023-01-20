@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./MessageList.module.css";
 import { useSupabaseClient, useUser } from "@supabase/auth-helpers-react";
 import Image from "next/image";
+import { useTheme } from "next-themes";
 
 type MessageType = {
   id: string;
@@ -13,12 +14,12 @@ type MessageType = {
 const MessageList = () => {
   const [messages, setMessages] = useState<MessageType[]>([]);
   const supabase = useSupabaseClient();
+  const { theme } = useTheme();
   useEffect(() => {
     const getData = async () => {
       const { data } = await supabase.from("messages").select("*");
 
       if (!data) {
-        alert("no data");
         return;
       }
 
@@ -27,19 +28,18 @@ const MessageList = () => {
     getData();
   }, [messages]);
 
+  const messageListTheme =
+    theme === "light" ? styles.messageListLight : styles.messageListDark;
+
   return (
-    <div className={styles.messageList}>
+    <div className={messageListTheme}>
       {messages.map((message, i) => {
-        if (i % 2 === 0) {
-          return (
-            <Message profile={"0"} text={message.content} key={message.id} />
-          );
-        }
         return (
           <Message
             profile={message.profile_id}
             text={message.content}
             key={message.id}
+            timeStamp={message.created_at}
           />
         );
       })}
@@ -50,11 +50,11 @@ const MessageList = () => {
 type messageProps = {
   text: string | null;
   profile: string | null;
+  timeStamp: string | null;
 };
 
 const Message = (props: messageProps) => {
   const user = useUser();
-  console.log(user);
   if (user?.id === props.profile) {
     return (
       <div className={styles.userMessage}>
@@ -64,6 +64,7 @@ const Message = (props: messageProps) => {
           width={40}
           height={40}
         />
+        {props.timeStamp}
         {props.text}
       </div>
     );

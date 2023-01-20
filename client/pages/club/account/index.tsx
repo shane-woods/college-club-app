@@ -1,25 +1,23 @@
 import React, { useEffect, useState } from "react";
-import Account from "../../components/Account";
+import Account from "../../../components/Account";
 import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/router";
-import DashNavBar from "../../components/DashNavBar";
-import styles from './AccountPage.module.css'
+import styles from "./AccountPage.module.css";
+import DashNavBar from "../../../components/DashNavBar";
 
 const AccountPage = () => {
-  const router = useRouter();
   const session = useSession();
 
   if (!session) {
-    router.push('/login');
+    return <div></div>;
   } else {
     return (
       <div className={styles.accountPage}>
-        <DashNavBar/>
-        <Account session={session}/>
+        <DashNavBar />
+        <Account session={session} />
       </div>
-    )
+    );
   }
-
-}
+};
 
 export default AccountPage;
