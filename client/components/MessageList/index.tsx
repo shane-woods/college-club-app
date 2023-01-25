@@ -4,6 +4,7 @@ import { User, useSupabaseClient, useUser } from "@supabase/auth-helpers-react";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import defaultAvi from "../../public/defaultAvi.png";
+import LoadingWidget from "../LoadingWidget";
 
 type MessageType = {
   id: string;
@@ -14,9 +15,11 @@ type MessageType = {
 
 const MessageList = () => {
   const [messages, setMessages] = useState<MessageType[]>([]);
+  const [loading, setLoading] = useState<boolean>();
   const supabase = useSupabaseClient();
   const { theme } = useTheme();
   useEffect(() => {
+    setLoading(true);
     const getData = async () => {
       const { data } = await supabase.from("messages").select("*");
 
@@ -25,6 +28,7 @@ const MessageList = () => {
       }
 
       setMessages(data);
+      setLoading(false);
     };
     getData();
   }, [messages]);
@@ -56,6 +60,7 @@ type messageProps = {
 
 type OtherUserMessage = {
   avatar_url: string;
+  username: string;
 };
 
 const Message = (props: messageProps) => {
@@ -76,6 +81,8 @@ const Message = (props: messageProps) => {
 
     setOtherUser(data);
   }
+
+  console.log();
 
   if (user?.id === props.profile) {
     return (
@@ -102,7 +109,13 @@ const Message = (props: messageProps) => {
           width={40}
           height={40}
         />
-        <p className={styles.messageText}>{props.text}</p>
+        <div className={styles.content}>
+          <div className={styles.nameTime}>
+            <p>{otherUser?.username}</p>
+            <p>{props.timeStamp}</p>
+          </div>
+          <p className={styles.messageText}>{props.text}</p>
+        </div>
       </div>
     );
   }

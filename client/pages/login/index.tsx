@@ -4,6 +4,7 @@ import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
 import styles from "./LoginPage.module.css";
 import { useTheme } from "next-themes";
 import Account from "../../components/Account";
+import Home from "../../public/dash-icons/home.svg";
 import Login from "../../components/Login";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -11,7 +12,7 @@ import Link from "next/link";
 const LoginPage = () => {
   const router = useRouter();
   const session = useSession();
-  const supabase = useSupabaseClient();
+  const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -22,11 +23,17 @@ const LoginPage = () => {
     return null;
   }
 
+  const darkCode: string = "#1e2328";
+  const lightCode: string = "#f3f3f3";
+  const oppositeTheme: string = theme === "light" ? darkCode : lightCode;
+
   if (!session) {
     return (
       <div className={styles.login}>
         <div className={styles.home}>
-          <Link href="/">Home</Link>
+          <Link href="/">
+            <Home stroke={oppositeTheme} />
+          </Link>
         </div>
         <Login />
       </div>

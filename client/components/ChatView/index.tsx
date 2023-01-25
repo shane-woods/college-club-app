@@ -6,14 +6,14 @@ import styles from "./ChatView.module.css";
 const ChatView = () => {
   const [message, setMessage] = useState<string>("");
   const supabase = useSupabaseClient();
-
   async function handleEnter(event: any) {
     if (event.keyCode === 13) {
       if (typeof message === "string" && message.length !== 0) {
         setMessage("");
-        const { error, data } = await supabase
-          .from("messages")
-          .insert({ content: message });
+        const { error, data } = await supabase.from("messages").insert({
+          content: message,
+          created_at: new Date().toLocaleDateString("en-US"),
+        });
         console.log({ error, data });
       }
     }

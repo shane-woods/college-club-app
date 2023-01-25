@@ -80,26 +80,21 @@ const Account = ({ session }: { session: Session }) => {
     }
   }
 
+  if (loading) {
+    return <div></div>;
+  }
+
   return (
     <div className={styles.accountContainer}>
       <div className={styles.account}>
         <div className={styles.userWelcome}>
           <div className={styles.userAvatar}>
-            {avatar_url ? (
-              <Image
-                src={avatar_url}
-                alt="User avatar"
-                height={75}
-                width={75}
-              />
-            ) : (
-              <Image
-                src={defaultAvi}
-                alt="User avatar"
-                height={75}
-                width={75}
-              />
-            )}
+            <Image
+              src={avatar_url ? avatar_url : defaultAvi}
+              alt="User avatar"
+              height={75}
+              width={75}
+            />
           </div>
           <h1>Hello {firstName}!</h1>
         </div>
