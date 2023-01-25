@@ -1,11 +1,12 @@
 import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
 import { Auth, ThemeSupa } from "@supabase/auth-ui-react";
 import { useTheme } from "next-themes";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import Account from "../../components/Account";
 import SignUp from "../../components/SignUp";
-import styles from './SignUpPage.module.css'
+import styles from "./SignUpPage.module.css";
 
 const SignUpPage = () => {
   const session = useSession();
@@ -15,7 +16,7 @@ const SignUpPage = () => {
 
   useEffect(() => {
     setMounted(true);
-  }, [])
+  }, []);
 
   if (!mounted) {
     return null;
@@ -24,13 +25,15 @@ const SignUpPage = () => {
   if (!session) {
     return (
       <div className={styles.signup}>
-        <SignUp/>
+        <div className={styles.home}>
+          <Link href="/">Home</Link>
+        </div>
+        <SignUp />
       </div>
-    )
+    );
   } else {
-    router.push('/dashboard');
+    router.push("/dashboard");
   }
-
-}
+};
 
 export default SignUpPage;

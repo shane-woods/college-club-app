@@ -1,10 +1,9 @@
 .message {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   margin: 1rem;
   padding: 1rem;
-  color: black;
-  background-color: aliceblue;
 }
 
 .messageListLight {
@@ -38,8 +37,22 @@
 }
 
 .userMessage {
-  display: grid;
+  display: flex;
+  align-items: center;
   gap: 1rem;
   margin: 1rem;
   padding: 1rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.content > p {
+  margin: 0.5rem;
+}
+
+.messageText {
+  font-size: 1.5rem;
 }

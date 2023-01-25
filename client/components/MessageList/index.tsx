@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styles from "./MessageList.module.css";
-import { useSupabaseClient, useUser } from "@supabase/auth-helpers-react";
+import { User, useSupabaseClient, useUser } from "@supabase/auth-helpers-react";
 import Image from "next/image";
 import { useTheme } from "next-themes";
+import defaultAvi from "../../public/defaultAvi.png";
 
 type MessageType = {
   id: string;
@@ -33,7 +34,7 @@ const MessageList = () => {
 
   return (
     <div className={messageListTheme}>
-      {messages.map((message, i) => {
+      {messages.map((message) => {
         return (
           <Message
             profile={message.profile_id}
@@ -49,12 +50,33 @@ const MessageList = () => {
 
 type messageProps = {
   text: string | null;
-  profile: string | null;
+  profile: string;
   timeStamp: string | null;
+};
+
+type OtherUserMessage = {
+  avatar_url: string;
 };
 
 const Message = (props: messageProps) => {
   const user = useUser();
+  const supabase = useSupabaseClient();
+  const [otherUser, setOtherUser] = useState<OtherUserMessage | null>(null);
+
+  async function getOtherUser() {
+    const { data, error } = await supabase
+      .from("profiles")
+      .select()
+      .eq("id", props.profile)
+      .maybeSingle();
+
+    if (error) {
+      return;
+    }
+
+    setOtherUser(data);
+  }
+
   if (user?.id === props.profile) {
     return (
       <div className={styles.userMessage}>
@@ -64,12 +86,26 @@ const Message = (props: messageProps) => {
           width={40}
           height={40}
         />
-        {props.timeStamp}
-        {props.text}
+        <div className={styles.content}>
+          <p>{props.timeStamp}</p>
+          <p className={styles.messageText}>{props.text}</p>
+        </div>
+      </div>
+    );
+  } else {
+    getOtherUser();
+    return (
+      <div className={styles.message}>
+        <Image
+          src={otherUser?.avatar_url ? otherUser.avatar_url : defaultAvi}
+          alt="User avatar"
+          width={40}
+          height={40}
+        />
+        <p className={styles.messageText}>{props.text}</p>
       </div>
     );
   }
-  return <div className={styles.message}>{props.text}</div>;
 };
 
 export default MessageList;

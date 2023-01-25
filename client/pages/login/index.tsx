@@ -6,6 +6,7 @@ import { useTheme } from "next-themes";
 import Account from "../../components/Account";
 import Login from "../../components/Login";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const LoginPage = () => {
   const router = useRouter();
@@ -24,6 +25,9 @@ const LoginPage = () => {
   if (!session) {
     return (
       <div className={styles.login}>
+        <div className={styles.home}>
+          <Link href="/">Home</Link>
+        </div>
         <Login />
       </div>
     );
