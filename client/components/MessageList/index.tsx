@@ -31,7 +31,7 @@ const MessageList = () => {
       setLoading(false);
     };
     getData();
-  }, [messages]);
+  }, [messages, loading]);
 
   const messageListTheme =
     theme === "light" ? styles.messageListLight : styles.messageListDark;
@@ -66,7 +66,7 @@ type OtherUserMessage = {
 const Message = (props: messageProps) => {
   const user = useUser();
   const supabase = useSupabaseClient();
-  const [otherUser, setOtherUser] = useState<OtherUserMessage | null>(null);
+  const [otherUser, setOtherUser] = useState<OtherUserMessage>();
 
   async function getOtherUser() {
     const { data, error } = await supabase
@@ -81,8 +81,6 @@ const Message = (props: messageProps) => {
 
     setOtherUser(data);
   }
-
-  console.log();
 
   if (user?.id === props.profile) {
     return (

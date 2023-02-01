@@ -16,31 +16,31 @@ const SignUpPage = () => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    if (session) {
+      router.push("/club/dashboard");
+    } else {
+      setMounted(true);
+    }
   }, []);
 
   if (!mounted) {
-    return null;
+    return <div></div>;
   }
 
   const darkCode: string = "#1e2328";
   const lightCode: string = "#f3f3f3";
   const oppositeTheme: string = theme === "light" ? darkCode : lightCode;
 
-  if (!session) {
-    return (
-      <div className={styles.signup}>
-        <div className={styles.home}>
-          <Link href="/">
-            <Home stroke={oppositeTheme} />
-          </Link>
-        </div>
-        <SignUp />
+  return (
+    <div className={styles.signup}>
+      <div className={styles.home}>
+        <Link href="/">
+          <Home stroke={oppositeTheme} />
+        </Link>
       </div>
-    );
-  } else {
-    router.push("/dashboard");
-  }
+      <SignUp />
+    </div>
+  );
 };
 
 export default SignUpPage;

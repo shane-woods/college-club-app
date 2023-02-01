@@ -34,10 +34,6 @@ const Account = ({ session }: { session: Session }) => {
         throw error;
       }
 
-      console.log(username);
-      console.log(avatar_url);
-      console.log(session.user.email);
-
       if (data) {
         setUsername(data.username);
         setAvatarUrl(data.avatar_url);

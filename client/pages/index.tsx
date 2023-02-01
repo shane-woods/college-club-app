@@ -7,18 +7,11 @@ import { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 
 export default function Home() {
-  const session = useSession();
-  const supabase = useSupabaseClient();
-  const router = useRouter();
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    if (session) {
-      router.push("/club/dashboard");
-    } else {
-      setLoading(false);
-    }
-  }, [session]);
+    setLoading(false);
+  }, []);
 
   return (
     <div>

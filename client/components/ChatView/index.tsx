@@ -1,11 +1,12 @@
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MessageList from "../MessageList";
 import styles from "./ChatView.module.css";
 
 const ChatView = () => {
   const [message, setMessage] = useState<string>("");
   const supabase = useSupabaseClient();
+
   async function handleEnter(event: any) {
     if (event.keyCode === 13) {
       if (typeof message === "string" && message.length !== 0) {

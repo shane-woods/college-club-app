@@ -5,17 +5,9 @@
   align-items: center;
 }
 
-.messageInput {
-  display: flex;
-  margin: 1rem;
-  width: 95%;
-}
-
 .messageInput > input {
   height: 1rem;
   padding: 1rem;
-  width: calc(100vw - 10rem);
-  margin: 0 1rem;
 }
 
 .messageInput > input:focus {
