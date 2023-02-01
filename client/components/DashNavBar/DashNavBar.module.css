@@ -1,15 +1,15 @@
 .dashButton > button {
   background-color: transparent;
-  border:transparent;
+  border: transparent;
   cursor: pointer;
-  padding:0;
+  padding: 0;
 }
 
 .dashSelected > button {
   background-color: transparent;
-  border:transparent;
+  border: transparent;
   cursor: pointer;
-  padding:0;
+  padding: 0;
 }
 
 .dashNav {
@@ -23,13 +23,13 @@
 .tools {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .user {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .user > svg {
@@ -43,15 +43,15 @@
 
 .dashButton {
   display: flex;
-  padding: .5rem;
-  margin:1rem;
+  padding: 0.5rem;
+  margin: 1rem;
   border: solid 2px transparent;
 }
 
 .dashSelected {
   display: flex;
-  padding: .5rem;
+  padding: 0.5rem;
   margin: 1rem;
   border: solid 2px transparent;
   border-bottom: solid 2px #31afee;
-} 
+}

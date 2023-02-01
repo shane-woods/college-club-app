@@ -1,24 +1,17 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import Navbar from '../components/Navbar'
-import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
-import Footer from '../components/Footer';
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
+import Navbar from "../components/Navbar";
+import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import Footer from "../components/Footer";
 
 export default function Home() {
-  const session = useSession();
-  const supabase = useSupabaseClient();
-  const router = useRouter();
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    if (session) {
-      router.push('/dashboard');
-    } else {
-      setLoading(false);
-    }
-  })
+    setLoading(false);
+  }, []);
 
   return (
     <div>
@@ -29,17 +22,16 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {loading ? (
-        <div>
-        </div>
+        <div></div>
       ) : (
         <main className={styles.guest}>
-          <Navbar/>
-          <HomeHeader/>
-          <Footer/>
+          <Navbar />
+          <HomeHeader />
+          <Footer />
         </main>
       )}
     </div>
-  )
+  );
 }
 
 const HomeHeader = () => {
@@ -48,5 +40,5 @@ const HomeHeader = () => {
       <h1>Company Name Here</h1>
       <p>Everything you need to run your college organization</p>
     </div>
-  )
-}
+  );
+};

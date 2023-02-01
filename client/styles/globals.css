@@ -1,37 +1,38 @@
 :root {
   /* Your default theme */
-  --background: #f3f3f3;
+  --background: #f0f0f0;
   --foreground: #1e2328;
-  --compliment: rgb(255, 255, 255);
+  --compliment: #ffffff;
 }
 
-[data-theme='dark'] {
+[data-theme="dark"] {
   --background: rgb(30, 35, 40);
-  --foreground: rgb(243, 243, 243);
-  --compliment: rgb(21, 26, 31);
+  --foreground: #f0f0f0;
+  --compliment: #151a1f;
 }
 
 html,
 body {
   height: 100%;
-  margin:0;
-  font-family: Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,
-  Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  margin: 0;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,
+    Segoe UI Symbol;
   background-color: var(--background);
 }
 
 a {
   text-decoration: none;
-  color:var(--foreground);
+  color: var(--foreground);
   border-color: var(--foreground);
 }
 
 img {
-  color:var(--foreground);
+  color: var(--foreground);
 }
 
 #__next {
-	display:flex;
-  flex-direction:column;
+  display: flex;
+  flex-direction: column;
   height: 100%;
 }

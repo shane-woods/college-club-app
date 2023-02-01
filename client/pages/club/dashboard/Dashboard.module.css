@@ -1,0 +1,9 @@
+.dashboard {
+  display: flex;
+  flex-direction: row;
+}
+
+.dashboard > h1 {
+  margin: 5rem;
+  font-size: 3rem;
+}
